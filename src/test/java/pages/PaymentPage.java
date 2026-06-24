@@ -12,8 +12,8 @@ import org.openqa.selenium.By;
 public class PaymentPage extends BasePage {
 
     // Locators
-    private final By bayarSekarangButton = By.id("com.indomaret.klikindomaret:id/btn_bayar_sekarang");
-    private final By paymentPageIndicator = By.id("com.indomaret.klikindomaret:id/tv_payment_title");
+    private final By bayarSekarangButton = By.xpath("//android.widget.TextView[contains(@text, 'Bayar') or contains(@text, 'BAYAR') or contains(@text, 'Bayar Sekarang') or contains(@text, 'Bayar sekarang')]");
+    private final By paymentPageIndicator = By.xpath("//android.widget.TextView[@text='Pembayaran']");
 
     public PaymentPage(AndroidDriver driver) {
         super(driver);
