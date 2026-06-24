@@ -12,10 +12,10 @@ import org.openqa.selenium.By;
 public class CheckoutPage extends BasePage {
 
     // Locators - Ringkasan Harga
-    private final By productPriceText = By.id("totalAmount"); // Mocking ke totalAmount karena rincian tidak ada
+    private final By productPriceText = By.xpath("//*[@resource-id='totalAmount']"); // Mocking ke totalAmount karena rincian tidak ada
     private final By shippingFeeText = By.id("dummy_shipping");
     private final By insuranceFeeText = By.id("dummy_insurance");
-    private final By totalPriceText = By.id("totalAmount");
+    private final By totalPriceText = By.xpath("//*[@resource-id='totalAmount']");
     private final By checkoutPageIndicator = By.xpath("//android.widget.TextView[@text='Pembayaran']");
 
     // Locators - Metode Pembayaran
