@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class LoginPage extends BasePage {
 
     // Locators
-    private final By usernameField = By.xpath("//android.widget.EditText[not(@password='true')]");
-    private final By lanjutBtn = By.id("com.indomaret.klikindomaret:id/28r");
+    private final By usernameField = By.xpath("//android.widget.EditText");
+    private final By lanjutBtn = By.xpath("//android.widget.TextView[@text='Lanjut' or @text='LANJUT']");
 
-    private final By passwordField = By.xpath("//android.widget.EditText[@password='true']");
-    private final By loginBtn = By.id("com.indomaret.klikindomaret:id/28r");
+    private final By passwordField = By.xpath("//android.widget.EditText[@password='true' or @text='Password']");
+    private final By loginBtn = By.xpath("//android.widget.TextView[@text='Masuk' or @text='MASUK']");
 
     public LoginPage(AndroidDriver driver) {
         super(driver);

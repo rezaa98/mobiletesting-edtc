@@ -48,6 +48,13 @@ public abstract class BasePage {
     }
 
     /**
+     * Memaksa klik elemen yang terlihat meskipun atribut clickable=false di Android.
+     */
+    protected void forceClick(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+    }
+
+    /**
      * Menunggu elemen terlihat, menghapus isi lama, lalu mengetikkan teks baru.
      *
      * @param locator Locator elemen input

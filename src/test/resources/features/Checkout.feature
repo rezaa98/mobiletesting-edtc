@@ -33,3 +33,61 @@ Feature: Klik Indomaret Checkout via Virtual Account
     When user selects "Virtual Account" as payment method in "Pembayaran" section
     And user clicks the "Bayar sekarang" button
     Then user should be redirected to order success page
+
+  @checkout @e2e @new_user
+  Scenario: Purchase product as a newly registered user
+    Given user is on the registration page
+    When user registers as a new user with random phone number
+    And user enters the OTP code
+    Then user should be on the home page
+
+    When user searches for a product
+    Then search results should be displayed
+
+    When user opens the product detail page
+    Then product detail page should be displayed
+    And user captures the product price
+
+    When user adds the product to cart
+    Then product should be added to cart successfully
+
+    When user proceeds to cart
+    And user clicks the "Beli" button
+    
+    Then user is directed to Order Type Selection
+    When user clicks "Lengkapi Alamat"
+    And user fills out a new delivery address
+    And user chooses delivery method
+    Then delivery fee should be displayed
+    And user captures the shipping fee and insurance fee
+    
+    Then checkout page should be displayed
+
+    When user verifies the price calculation
+    Then total price should equal product price plus shipping fee plus insurance fee
+
+    When user selects "Virtual Account" as payment method in "Pembayaran" section
+    And user clicks the "Bayar sekarang" button
+    Then user should be redirected to order success page
+
+  @checkout @checkout_existing
+  Scenario: Purchase product with existing address (Already logged in)
+    Given user logs in with valid credentials
+    When user searches for a product
+    Then search results should be displayed
+    When user opens the product detail page
+    Then product detail page should be displayed
+    And user captures the product price
+    When user adds the product to cart
+    Then product should be added to cart successfully
+    When user proceeds to cart
+    # Untuk user yang sudah punya alamat, flow-nya dari Cart page
+    And user chooses delivery method
+    Then delivery fee should be displayed
+    And user captures the shipping fee and insurance fee
+    And user clicks the "Beli" button
+    Then checkout page should be displayed
+    And total price should equal product price plus shipping fee plus insurance fee
+    When user selects "Virtual Account" as payment method in "Pembayaran" section
+    And user clicks the "Bayar sekarang" button
+    Then user should be redirected to order success page

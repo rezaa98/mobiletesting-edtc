@@ -14,7 +14,7 @@ public class HomePage extends BasePage {
 
     // Locators
     private final By homeIndicator = By.xpath("//android.widget.TextView[@text='Beranda']");
-    private final By searchBar = By.id("com.indomaret.klikindomaret:id/dtl");
+    private final By searchBar = By.xpath("//android.widget.TextView[@text='Cari di Klik Indomaret' or contains(@text, 'Cari')]");
     
     // Updated locators from search results page inspection
     private final By searchInputBox = By.xpath("//android.widget.EditText");
@@ -30,7 +30,7 @@ public class HomePage extends BasePage {
      * @return true jika halaman utama terlihat
      */
     public boolean isDisplayed() {
-        return isDisplayed(homeIndicator);
+        return isDisplayed(searchBar);
     }
 
     /**

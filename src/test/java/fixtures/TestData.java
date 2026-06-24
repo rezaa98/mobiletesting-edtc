@@ -1,69 +1,69 @@
 package fixtures;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.InputStream;
-
 /**
- * TestData - Kelas untuk membaca dan menyediakan data uji dari testdata.json.
+ * TestData - Kelas untuk mengonfigurasi data uji secara langsung di dalam kode.
  *
- * Semua test data dipusatkan di sini agar mudah diubah tanpa menyentuh kode test.
- * Ini memenuhi prinsip "separation of concerns" dan "maintainability".
+ * Pengguna cukup mengubah nilai-nilai variabel di bawah ini untuk mengganti
+ * skenario pengujian tanpa harus menyentuh logika utama atau file JSON.
  */
 public class TestData {
 
-    private static JsonNode rootNode;
+    // ==========================================
+    // ⚙️ KONFIGURASI PENGGUNA (Ubah di sini)
+    // ==========================================
 
-    static {
-        loadTestData();
-    }
+    // --- Login ---
+    public static final String USERNAME = "rezaaa.ym@gmail.com";
+    public static final String PASSWORD = "IniPassword12345";
 
-    /**
-     * Membaca file testdata.json dari resources.
-     */
-    private static void loadTestData() {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = TestData.class.getClassLoader()
-                    .getResourceAsStream("testdata.json");
-            if (inputStream == null) {
-                throw new RuntimeException("File testdata.json tidak ditemukan di resources!");
-            }
-            rootNode = mapper.readTree(inputStream);
-        } catch (Exception e) {
-            throw new RuntimeException("Gagal membaca testdata.json: " + e.getMessage(), e);
-        }
-    }
+    // --- Pencarian Produk ---
+    public static final String SEARCH_KEYWORD = "sarimie";
 
-    /**
-     * @return Username untuk login
-     */
+    // --- Keranjang ---
+    public static final int QUANTITY = 3; // Total produk yang mau dicheckout
+
+    // --- Pengiriman ---
+    // Catatan: Saat ini skrip otomatis memilih slot waktu pengiriman pertama yang
+    // tersedia.
+    // Jika Anda ingin memilih spesifik (contoh: "10:00 - 12:00"),
+    // pastikan menambahkan implementasinya di CartPage.java nanti.
+    public static final String DELIVERY_TIME = "Slot Waktu Pertama";
+
+    // --- Pembayaran ---
+    public static final String PAYMENT_METHOD = "BCA Virtual Account";
+
+    // --- Registrasi Pengguna Baru ---
+    public static final String NEW_USER_PHONE = "081414343403";
+    public static final String NEW_USER_NAME = "Test User Registration";
+    public static final String NEW_USER_EMAIL = "testuser_auto@gmail.com";
+    public static final String NEW_USER_PASSWORD = "Password123";
+
+    // --- Pengisian Alamat Baru ---
+    public static final String NEW_ADDRESS_LABEL = "Rumah Test Automation";
+    public static final String NEW_ADDRESS_DETAIL = "Jalan Sudirman No. 1, Apartemen A, Tower B";
+    public static final String NEW_ADDRESS_RECEIVER = "Test User Automation";
+
+    // ==========================================
+    // 🛠 METODE AKSES (Tidak perlu diubah)
+    // ==========================================
+
     public static String getUsername() {
-        return rootNode.get("login").get("username").asText();
+        return USERNAME;
     }
 
-    /**
-     * @return Password untuk login
-     */
     public static String getPassword() {
-        return rootNode.get("login").get("password").asText();
+        return PASSWORD;
     }
 
-    /**
-     * @return Kata kunci pencarian produk
-     */
     public static String getSearchKeyword() {
-        return rootNode.get("search").get("keyword").asText();
+        return SEARCH_KEYWORD;
     }
 
-    /**
-     * @return Jumlah (kuantitas) produk yang mau ditambahkan
-     */
     public static int getQuantity() {
-        if (rootNode.has("cart") && rootNode.get("cart").has("quantity")) {
-            return rootNode.get("cart").get("quantity").asInt();
-        }
-        return 1; // default to 1
+        return QUANTITY;
+    }
+
+    public static String getPaymentMethod() {
+        return PAYMENT_METHOD;
     }
 }

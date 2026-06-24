@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 public class PaymentPage extends BasePage {
 
     // Locators
-    private final By bayarSekarangButton = By.xpath("//android.widget.TextView[contains(@text, 'Bayar') or contains(@text, 'BAYAR') or contains(@text, 'Bayar Sekarang') or contains(@text, 'Bayar sekarang')]");
+    private final By bayarSekarangButton = By.xpath("//*[@resource-id='payButton']");
     private final By paymentPageIndicator = By.xpath("//android.widget.TextView[@text='Pembayaran']");
 
     public PaymentPage(AndroidDriver driver) {
@@ -32,7 +32,7 @@ public class PaymentPage extends BasePage {
      * Menekan tombol "Bayar sekarang" untuk menyelesaikan pembayaran.
      */
     public void clickBayarSekarang() {
-        scrollToText("Bayar sekarang");
+        scrollToText("Bayar Sekarang");
         click(bayarSekarangButton);
     }
 }

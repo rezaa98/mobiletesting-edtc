@@ -27,3 +27,10 @@ allure-results/
 
 # APK (too large for git)
 app/*.apk
+
+# Logs & Dumps
+*.xml
+*.png
+*.py
+appium.log
+

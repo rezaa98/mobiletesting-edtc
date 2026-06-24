@@ -20,6 +20,7 @@ public class CheckoutPage extends BasePage {
 
     // Locators - Metode Pembayaran
     private final By virtualAccountOption = By.xpath("//android.widget.TextView[@text='BCA Virtual Account']");
+    private final By bayarSekarangButton = By.xpath("//android.widget.Button[@text='Bayar Sekarang']");
 
     public CheckoutPage(AndroidDriver driver) {
         super(driver);
@@ -59,6 +60,28 @@ public class CheckoutPage extends BasePage {
      */
     public String getInsuranceFeeText() {
         return "Rp 0";
+    }
+
+    public void clickBayarSekarang() {
+        click(bayarSekarangButton);
+    }
+
+    /**
+     * Menangani popup "Metode Pembayaran sudah digunakan!" jika muncul
+     */
+    public void handlePaymentAlreadyUsedPopup() {
+        By continuePaymentBtn = By.xpath("//android.widget.Button[@text='Lanjutkan']");
+        System.out.println("[INFO] Menunggu popup Metode Pembayaran (jika ada)...");
+        driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(3));
+        boolean popupExists = !driver.findElements(continuePaymentBtn).isEmpty();
+        driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(15)); // Restore
+
+        if (popupExists) {
+            System.out.println("[INFO] Popup 'Metode Pembayaran sudah digunakan!' terdeteksi. Mengeklik 'Lanjutkan'...");
+            click(continuePaymentBtn);
+        } else {
+            System.out.println("[INFO] Tidak ada popup Metode Pembayaran.");
+        }
     }
 
     /**

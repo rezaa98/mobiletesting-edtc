@@ -23,7 +23,7 @@ import org.testng.annotations.DataProvider;
                 "json:target/cucumber-reports/cucumber-report.json"
         },
         monochrome = true,
-        tags = "@checkout"
+        tags = "@add_address_flow"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

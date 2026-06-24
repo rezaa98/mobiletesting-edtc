@@ -15,10 +15,10 @@ public class CartPage extends BasePage {
     private final By cartIcon = By.id("com.indomaret.klikindomaret:id/ce7");
     private final By cartPageIndicator = By.xpath("//android.widget.TextView[@text='Keranjang Belanja']");
     private final By deliveryMethodSection = By.id("com.indomaret.klikindomaret:id/4aq");
-    private final By deliveryMethodButton = By.xpath("//android.widget.TextView[@text='Pesan Antar' or contains(@text, 'Pilih tipe pengiriman')]");
+    private final By deliveryMethodButton = By.xpath("//android.view.ViewGroup[android.widget.TextView[@text='Pilih tipe pengiriman' or @text='Pesan Antar']]");
     
     // Bottom Sheet Locators
-    private final By regulerDeliveryOption = By.xpath("//android.widget.TextView[contains(@text, 'Reguler')]");
+    private final By regulerDeliveryOption = By.xpath("//android.widget.TextView[contains(@text, 'Reguler') or contains(@text, 'Standar') or contains(@text, 'Standard') or contains(@text, 'Sameday')]");
     private final By timeSlotOption = By.id("com.indomaret.klikindomaret:id/eei");
     private final By konfirmasiButton = By.id("com.indomaret.klikindomaret:id/amb");
 
