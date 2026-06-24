@@ -42,7 +42,8 @@ public class HomePage extends BasePage {
         click(searchBar);
         // Wait for the actual search input to appear
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchInputBox));
-        type(searchInputBox, keyword + "\\n"); // Using \n to simulate pressing enter/search
+        type(searchInputBox, keyword);
+        driver.executeScript("mobile: performEditorAction", com.google.common.collect.ImmutableMap.of("action", "search"));
     }
 
     /**

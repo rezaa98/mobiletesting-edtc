@@ -128,7 +128,11 @@ public class CheckoutSteps {
 
     @When("user adds the product to cart")
     public void userAddsTheProductToCart() {
-        productPage.addToCart();
+        int quantity = TestData.getQuantity();
+        for (int i = 0; i < quantity; i++) {
+            productPage.addToCart();
+            productPage.waitForSeconds(1); // Wait a bit between clicks if adding multiple
+        }
     }
 
     @Then("product should be added to cart successfully")
@@ -213,8 +217,9 @@ public class CheckoutSteps {
     @Then("total price should equal product price plus shipping fee plus insurance fee")
     public void totalPriceShouldEqualCalculation() {
         // Hitung total secara manual
+        int quantity = TestData.getQuantity();
         int expectedTotal = PriceCalculator.calculateTotalPrice(
-                capturedProductPrice, capturedShippingFee, capturedInsuranceFee
+                capturedProductPrice, quantity, capturedShippingFee, capturedInsuranceFee
         );
 
         // Ambil total yang ditampilkan di UI
@@ -230,10 +235,10 @@ public class CheckoutSteps {
 
         Assert.assertTrue(isMatch,
                 String.format("Total harga tidak sesuai! " +
-                                "Kalkulasi: %s (%d + %d + %d = %d), " +
+                                "Kalkulasi: %s (%d * %d + %d + %d = %d), " +
                                 "UI: %s (%d)",
                         PriceCalculator.formatToRupiah(expectedTotal),
-                        capturedProductPrice, capturedShippingFee, capturedInsuranceFee,
+                        capturedProductPrice, quantity, capturedShippingFee, capturedInsuranceFee,
                         expectedTotal,
                         PriceCalculator.formatToRupiah(actualTotal),
                         actualTotal

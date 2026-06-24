@@ -32,12 +32,13 @@ public class PriceCalculator {
      * Menghitung total harga berdasarkan komponen-komponen belanja.
      *
      * @param productPrice Harga produk
+     * @param quantity     Kuantitas produk
      * @param shippingFee  Ongkos kirim
      * @param insuranceFee Biaya asuransi
      * @return Total harga yang harus dibayar
      */
-    public static int calculateTotalPrice(int productPrice, int shippingFee, int insuranceFee) {
-        return productPrice + shippingFee + insuranceFee;
+    public static int calculateTotalPrice(int productPrice, int quantity, int shippingFee, int insuranceFee) {
+        return (productPrice * quantity) + shippingFee + insuranceFee;
     }
 
     /**

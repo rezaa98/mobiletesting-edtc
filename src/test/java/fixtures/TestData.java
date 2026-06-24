@@ -56,4 +56,14 @@ public class TestData {
     public static String getSearchKeyword() {
         return rootNode.get("search").get("keyword").asText();
     }
+
+    /**
+     * @return Jumlah (kuantitas) produk yang mau ditambahkan
+     */
+    public static int getQuantity() {
+        if (rootNode.has("cart") && rootNode.get("cart").has("quantity")) {
+            return rootNode.get("cart").get("quantity").asInt();
+        }
+        return 1; // default to 1
+    }
 }
