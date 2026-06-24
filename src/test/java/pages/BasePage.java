@@ -82,7 +82,23 @@ public abstract class BasePage {
             return false;
         }
     }
-
+    /**
+     * Mengecek apakah elemen ditampilkan di layar dengan cepat tanpa menunggu (bypass implicit wait).
+     * Berguna untuk mengecek elemen kondisional (seperti tombol Add to Cart vs tombol Plus).
+     *
+     * @param locator Locator elemen
+     * @return true jika elemen ditemukan
+     */
+    protected boolean isDisplayedFast(By locator) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        try {
+            return !driver.findElements(locator).isEmpty() && driver.findElement(locator).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Restore implicit wait
+        }
+    }
     /**
      * Melakukan scroll ke bawah pada layar.
      * Menggunakan UiScrollable untuk menemukan elemen yang belum terlihat.

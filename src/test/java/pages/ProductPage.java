@@ -54,9 +54,9 @@ public class ProductPage extends BasePage {
      * Menekan tombol "Tambah ke Keranjang" atau tombol "+" jika barang sudah ada.
      */
     public void addToCart() {
-        if (isDisplayed(addToCartButton)) {
+        if (isDisplayedFast(addToCartButton)) {
             click(addToCartButton);
-        } else if (isDisplayed(plusButton)) {
+        } else if (isDisplayedFast(plusButton)) {
             click(plusButton);
         } else {
             // Jika keduanya tidak ada, biarkan click() asli melempar exception
