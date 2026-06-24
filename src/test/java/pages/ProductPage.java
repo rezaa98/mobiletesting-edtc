@@ -15,6 +15,7 @@ public class ProductPage extends BasePage {
     private final By productName = By.id("com.indomaret.klikindomaret:id/4si");
     private final By productPrice = By.id("com.indomaret.klikindomaret:id/28j");
     private final By addToCartButton = By.id("com.indomaret.klikindomaret:id/9kj");
+    private final By plusButton = By.id("com.indomaret.klikindomaret:id/1ed");
     private final By addToCartSuccessMessage = By.id("dummy_success_message");
 
     public ProductPage(AndroidDriver driver) {
@@ -50,10 +51,17 @@ public class ProductPage extends BasePage {
     }
 
     /**
-     * Menekan tombol "Tambah ke Keranjang".
+     * Menekan tombol "Tambah ke Keranjang" atau tombol "+" jika barang sudah ada.
      */
     public void addToCart() {
-        click(addToCartButton);
+        if (isDisplayed(addToCartButton)) {
+            click(addToCartButton);
+        } else if (isDisplayed(plusButton)) {
+            click(plusButton);
+        } else {
+            // Jika keduanya tidak ada, biarkan click() asli melempar exception
+            click(addToCartButton);
+        }
     }
 
     /**
