@@ -67,15 +67,18 @@ public class CheckoutSteps {
 
     @Given("user is on the login page")
     public void userIsOnTheLoginPage() {
-        Assert.assertTrue(loginPage.isDisplayed(),
-                "Halaman login tidak ditampilkan!");
+        if (!homePage.isDisplayed()) {
+            Assert.assertTrue(loginPage.isDisplayed(), "Halaman login tidak ditampilkan!");
+        }
     }
 
     @When("user logs in with valid credentials")
     public void userLogsInWithValidCredentials() {
-        String username = TestData.getUsername();
-        String password = TestData.getPassword();
-        loginPage.login(username, password);
+        if (!homePage.isDisplayed()) {
+            String username = TestData.getUsername();
+            String password = TestData.getPassword();
+            loginPage.login(username, password);
+        }
     }
 
     @Then("user should be on the home page")

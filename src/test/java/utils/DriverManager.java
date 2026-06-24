@@ -55,7 +55,7 @@ public class DriverManager {
             // Timeout settings
             options.setNewCommandTimeout(Duration.ofSeconds(300));
             options.setAutoGrantPermissions(true);
-            options.setNoReset(false);
+            options.setNoReset(true);
 
             try {
                 driver.set(new AndroidDriver(new URL(APPIUM_SERVER_URL), options));
