@@ -80,7 +80,6 @@ public class CartPage extends BasePage {
      * Menekan tombol "Beli".
      */
     public void clickBeliButton() {
-        scrollToText("Beli");
         click(beliButton);
     }
 }
