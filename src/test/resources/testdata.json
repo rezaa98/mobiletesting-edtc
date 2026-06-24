@@ -1,0 +1,9 @@
+{
+  "login": {
+    "username": "dummy_user@gmail.com",
+    "password": "Password123"
+  },
+  "search": {
+    "keyword": "Indomie Goreng"
+  }
+}

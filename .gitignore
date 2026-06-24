@@ -1,0 +1,29 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Appium / Test Reports
+test-output/
+allure-results/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# APK (too large for git)
+app/*.apk
