@@ -15,7 +15,13 @@ public class CartPage extends BasePage {
     private final By cartIcon = By.id("com.indomaret.klikindomaret:id/ce7");
     private final By cartPageIndicator = By.xpath("//android.widget.TextView[@text='Keranjang Belanja']");
     private final By deliveryMethodSection = By.id("com.indomaret.klikindomaret:id/4aq");
-    private final By firstDeliveryOption = By.xpath("//android.widget.TextView[@text='Pesan Antar']");
+    private final By deliveryMethodButton = By.xpath("//android.widget.TextView[@text='Pesan Antar' or contains(@text, 'Pilih tipe pengiriman')]");
+    
+    // Bottom Sheet Locators
+    private final By regulerDeliveryOption = By.xpath("//android.widget.TextView[contains(@text, 'Reguler')]");
+    private final By timeSlotOption = By.id("com.indomaret.klikindomaret:id/eei");
+    private final By konfirmasiButton = By.id("com.indomaret.klikindomaret:id/amb");
+
     private final By shippingFeeText = By.id("dummy_shipping");
     private final By insuranceFeeText = By.id("dummy_insurance");
     private final By beliButton = By.id("com.indomaret.klikindomaret:id/c1h");
@@ -40,12 +46,15 @@ public class CartPage extends BasePage {
         return isDisplayed(cartPageIndicator);
     }
 
-    /**
-     * Memilih metode pengiriman pertama yang tersedia.
-     */
     public void chooseDeliveryMethod() {
-        scrollToText("Pesan Antar");
-        click(firstDeliveryOption);
+        click(deliveryMethodButton);
+        waitForSeconds(2); // Wait for bottom sheet
+        click(regulerDeliveryOption);
+        waitForSeconds(1); // Wait for time slots to appear
+        click(timeSlotOption); // Click first time slot
+        waitForSeconds(1);
+        click(konfirmasiButton);
+        waitForSeconds(2); // Wait for bottom sheet to close
     }
 
     /**
