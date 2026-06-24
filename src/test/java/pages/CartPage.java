@@ -25,6 +25,7 @@ public class CartPage extends BasePage {
     private final By shippingFeeText = By.id("dummy_shipping");
     private final By insuranceFeeText = By.id("dummy_insurance");
     private final By beliButton = By.id("com.indomaret.klikindomaret:id/c1h");
+    private final By lanjutBeliButton = By.id("com.indomaret.klikindomaret:id/2m6");
 
     public CartPage(AndroidDriver driver) {
         super(driver);
@@ -86,9 +87,15 @@ public class CartPage extends BasePage {
     }
 
     /**
-     * Menekan tombol "Beli".
+     * Menekan tombol "Beli" dan menangani popup penawaran spesial jika muncul.
      */
     public void clickBeliButton() {
         click(beliButton);
+        waitForSeconds(2);
+        if (isDisplayedFast(lanjutBeliButton)) {
+            System.out.println("[INFO] Menangani popup 'Tebus Murah' dengan menekan 'Lanjut Beli'.");
+            click(lanjutBeliButton);
+            waitForSeconds(2);
+        }
     }
 }
