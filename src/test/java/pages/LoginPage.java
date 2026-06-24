@@ -11,10 +11,11 @@ import org.openqa.selenium.By;
 public class LoginPage extends BasePage {
 
     // Locators
-    private final By usernameField = By.id("com.indomaret.klikindomaret:id/et_username");
-    private final By passwordField = By.id("com.indomaret.klikindomaret:id/et_password");
-    private final By loginButton = By.id("com.indomaret.klikindomaret:id/btn_login");
-    private final By loginPageIndicator = By.id("com.indomaret.klikindomaret:id/tv_login");
+    private final By usernameField = By.xpath("//android.widget.EditText[not(@password='true')]");
+    private final By lanjutBtn = By.id("com.indomaret.klikindomaret:id/28r");
+
+    private final By passwordField = By.xpath("//android.widget.EditText[@password='true']");
+    private final By loginBtn = By.id("com.indomaret.klikindomaret:id/28r");
 
     public LoginPage(AndroidDriver driver) {
         super(driver);
@@ -26,7 +27,7 @@ public class LoginPage extends BasePage {
      * @return true jika halaman login terlihat
      */
     public boolean isDisplayed() {
-        return isDisplayed(loginPageIndicator);
+        return isDisplayed(usernameField);
     }
 
     /**
@@ -51,7 +52,7 @@ public class LoginPage extends BasePage {
      * Menekan tombol login.
      */
     public void clickLoginButton() {
-        click(loginButton);
+        click(loginBtn);
     }
 
     /**
@@ -61,8 +62,12 @@ public class LoginPage extends BasePage {
      * @param password Password pengguna
      */
     public void login(String username, String password) {
-        enterUsername(username);
-        enterPassword(password);
-        clickLoginButton();
+        type(usernameField, username);
+        click(lanjutBtn);
+        
+        // Wait for password field to appear, then input password and click "Masuk"
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
+        type(passwordField, password);
+        click(loginBtn);
     }
 }

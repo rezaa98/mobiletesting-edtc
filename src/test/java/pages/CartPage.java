@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 public class CartPage extends BasePage {
 
     // Locators
-    private final By cartIcon = By.id("com.indomaret.klikindomaret:id/iv_cart");
+    private final By cartIcon = By.id("com.indomaret.klikindomaret:id/ce7");
     private final By cartPageIndicator = By.id("com.indomaret.klikindomaret:id/tv_cart_title");
     private final By deliveryMethodSection = By.id("com.indomaret.klikindomaret:id/rv_delivery_method");
     private final By firstDeliveryOption = By.id("com.indomaret.klikindomaret:id/rb_delivery_option");

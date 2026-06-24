@@ -12,10 +12,12 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
 
     // Locators
-    private final By searchBar = By.id("com.indomaret.klikindomaret:id/et_search");
-    private final By searchButton = By.id("com.indomaret.klikindomaret:id/iv_search");
-    private final By homeIndicator = By.id("com.indomaret.klikindomaret:id/bottom_navigation");
-    private final By firstSearchResult = By.id("com.indomaret.klikindomaret:id/tv_product_name");
+    private final By homeIndicator = By.xpath("//android.widget.TextView[@text='Beranda']");
+    private final By searchBar = By.id("com.indomaret.klikindomaret:id/dtl");
+    
+    // Updated locators from search results page inspection
+    private final By searchInputBox = By.xpath("//android.widget.EditText");
+    private final By firstSearchResult = By.id("com.indomaret.klikindomaret:id/e85");
 
     public HomePage(AndroidDriver driver) {
         super(driver);
@@ -37,8 +39,9 @@ public class HomePage extends BasePage {
      */
     public void searchProduct(String keyword) {
         click(searchBar);
-        type(searchBar, keyword);
-        click(searchButton);
+        // Wait for the actual search input to appear
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchInputBox));
+        type(searchInputBox, keyword + "\\n"); // Using \n to simulate pressing enter/search
     }
 
     /**

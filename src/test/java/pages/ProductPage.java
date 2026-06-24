@@ -12,10 +12,10 @@ import org.openqa.selenium.By;
 public class ProductPage extends BasePage {
 
     // Locators
-    private final By productName = By.id("com.indomaret.klikindomaret:id/tv_product_name");
-    private final By productPrice = By.id("com.indomaret.klikindomaret:id/tv_product_price");
-    private final By addToCartButton = By.id("com.indomaret.klikindomaret:id/btn_add_to_cart");
-    private final By addToCartSuccessMessage = By.id("com.indomaret.klikindomaret:id/tv_success_message");
+    private final By productName = By.id("com.indomaret.klikindomaret:id/4si");
+    private final By productPrice = By.id("com.indomaret.klikindomaret:id/28j");
+    private final By addToCartButton = By.id("com.indomaret.klikindomaret:id/9kj");
+    private final By addToCartSuccessMessage = By.id("dummy_success_message");
 
     public ProductPage(AndroidDriver driver) {
         super(driver);

@@ -22,13 +22,14 @@ public class DriverManager {
     private static final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
 
     // Konfigurasi Device / Emulator
-    private static final String DEVICE_NAME = "emulator-5554";
+    private static final String DEVICE_NAME = "Physical Android Device";
+    private static final String UDID = "adb-345311634900047-71AzuX._adb-tls-connect._tcp";
     private static final String PLATFORM_NAME = "Android";
     private static final String AUTOMATION_NAME = "UiAutomator2";
 
     // Konfigurasi Aplikasi
     private static final String APP_PACKAGE = "com.indomaret.klikindomaret";
-    private static final String APP_ACTIVITY = "com.indomaret.klikindomaret.activity.SplashScreenActivity";
+    private static final String APP_ACTIVITY = "com.indomaret.klikindomaret.ngsCexmFBytBw";
     private static final String APK_PATH = "app/klik-indomaret.apk";
 
     /**
@@ -40,15 +41,16 @@ public class DriverManager {
             UiAutomator2Options options = new UiAutomator2Options();
             options.setPlatformName(PLATFORM_NAME);
             options.setDeviceName(DEVICE_NAME);
+            options.setUdid(UDID);
             options.setAutomationName(AUTOMATION_NAME);
             options.setAppPackage(APP_PACKAGE);
             options.setAppActivity(APP_ACTIVITY);
 
-            // Set APK path jika file APK tersedia
-            File apkFile = new File(APK_PATH);
-            if (apkFile.exists()) {
-                options.setApp(apkFile.getAbsolutePath());
-            }
+            // Set APK path jika file APK tersedia (Dinonaktifkan karena APK berupa split/xapk)
+            // File apkFile = new File(APK_PATH);
+            // if (apkFile.exists()) {
+            //     options.setApp(apkFile.getAbsolutePath());
+            // }
 
             // Timeout settings
             options.setNewCommandTimeout(Duration.ofSeconds(300));
