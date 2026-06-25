@@ -88,6 +88,20 @@ Mobile Testing/
 
 ---
 
+## 📝 Konfigurasi Test Data
+
+Sebelum menjalankan tes, Anda dapat menyesuaikan konfigurasi kredensial akun, produk yang ingin dibeli, dan preferensi waktu pengiriman secara terpusat di dalam file konfigurasi data.
+
+File lokasi: `src/test/java/fixtures/TestData.java`
+
+Contoh parameter yang bisa diubah secara dinamis:
+- `USERNAME` & `PASSWORD`: Kredensial akun Klik Indomaret yang valid untuk proses *login*.
+- `SEARCH_KEYWORD`: Nama barang/produk yang ingin dicari (contoh: `"sarimie"`).
+- `QUANTITY`: Jumlah kuantitas produk yang ditambahkan ke keranjang (contoh: `10`).
+- `DELIVERY_TIME`: Preferensi slot waktu pengiriman pesanan (contoh: `"13.00 - 13.59"`).
+
+---
+
 ## 🚀 Cara Menjalankan
 
 ### 1. Jalankan Appium Server
