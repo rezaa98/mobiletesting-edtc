@@ -2,7 +2,6 @@ package pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * AddressPage - Page Object untuk halaman Pengisian Alamat Pengiriman.
@@ -15,7 +14,6 @@ public class AddressPage extends BasePage {
     // Locators Layar Cari Lokasi
     private final By headerTitle = By.xpath("//android.widget.TextView[@text='Cari Lokasi' or @text='Tambah Alamat']");
     private final By searchLocationField = By.xpath("//android.widget.EditText[@text='Cari lokasi / gedung / nama jalan' or contains(@text, 'Cari lokasi')]");
-    private final By gunakanLokasiBtn = By.id("com.indomaret.klikindomaret:id/39c");
     private final By firstSearchResult = By.xpath("//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
 
     // Locators Layar Peta (Map Pin)

@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HomePage extends BasePage {
 
     // Locators
-    private final By homeIndicator = By.xpath("//android.widget.TextView[@text='Beranda']");
     private final By searchBar = By.xpath("//android.widget.TextView[@text='Cari di Klik Indomaret' or contains(@text, 'Cari')]");
     
     // Updated locators from search results page inspection
