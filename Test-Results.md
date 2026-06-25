@@ -55,12 +55,12 @@ Sistem berhasil melakukan konversi *string* UI ke bentuk *integer* dan membuktik
 ====================================
   VERIFIKASI KALKULASI HARGA
 ====================================
-  Harga Produk     : Rp 10.500
-  Ongkos Kirim     : Rp 5.000
+  Harga Produk     : Rp 35.000
+  Ongkos Kirim     : Rp 0
   Biaya Asuransi   : Rp 0
 ====================================
-  Total Kalkulasi  : Rp 15.500
-  Total di UI      : Rp 15.500
+  Total Kalkulasi  : Rp 35.000
+  Total di UI      : Rp 35.000
 ====================================
 [PASSED] ✅ Total harga sesuai antara kalkulasi dan UI!
 ```
