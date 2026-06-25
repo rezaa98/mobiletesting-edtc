@@ -4,6 +4,13 @@ Laporan ini mendokumentasikan hasil eksekusi pengujian otomatisasi secara *End-t
 
 ---
 
+## 📽️ Bukti Rekaman Eksekusi (Screen Record)
+Berikut adalah rekaman layar asli dari *device* saat tes dieksekusi secara otomatis oleh Appium. (Masalah *flaky* pada tombol pengiriman sudah terbukti berhasil teratasi di sini!)
+
+![Test Execution Video](/Users/mac-095093/Downloads/Project Interview/Mobile Testing/test_record.mp4)
+
+---
+
 ## 📱 Lingkungan Pengujian (Test Environment)
 * **Aplikasi:** Klik Indomaret APK (v2606100)
 * **Sistem Operasi:** Android 15
