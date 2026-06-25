@@ -20,7 +20,7 @@ public class TestData {
     public static final String SEARCH_KEYWORD = "sarimie";
 
     // --- Keranjang ---
-    public static final int QUANTITY = 3; // Total produk yang mau dicheckout
+    public static final int QUANTITY = 10; // Total produk yang mau dicheckout
 
     // --- Pengiriman ---
     // Catatan: Saat ini skrip otomatis memilih slot waktu pengiriman pertama yang
