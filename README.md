@@ -134,7 +134,7 @@ Saat test berjalan, output konsol akan menampilkan:
 ## 📝 Catatan Penting
 
 - **Prasyarat Keranjang Kosong:** Pastikan keranjang belanja (*Cart*) dalam keadaan kosong sebelum menjalankan pengujian. Ini diwajibkan agar proses asersi perhitungan **Total Harga = Harga Produk + Ongkos Kirim + Asuransi** akurat 100%.
-- **Batas Skop Otomatisasi (Virtual Account):** Uji coba ini secara sengaja hanya mengeksekusi *flow* sampai pada tampilan nomor Virtual Account (VA) dan mengecek instruksi pembayarannya. Skrip **tidak** melakukan pengecekan sampai "Pembayaran Terverifikasi" karena instruksi menuntut tes otomatisasi tanpa transaksi finansial aktual.
+- **Batas Scope Otomatisasi (Virtual Account):** Uji coba ini secara sengaja hanya mengeksekusi *flow* sampai pada tampilan nomor Virtual Account (VA) dan mengecek instruksi pembayarannya. Skrip **tidak** melakukan pengecekan sampai "Pembayaran Terverifikasi" karena instruksi menuntut tes otomatisasi tanpa transaksi finansial aktual.
 - **Auto-Handling Popup VA:** Jika akun pernah menggunakan metode VA yang sama dan memicu *popup* "Metode Pembayaran sudah digunakan!", skrip akan secara otomatis mengeklik tombol **Lanjutkan**.
 - **Element Locators**: Locator ID (`By.id(...)`) atau XPath sangat bergantung pada hirarki XML yang spesifik (seperti resolusi *socket hang up*). Semua locator telah dioptimalkan untuk berjalan pada *real device* fisik.
 - **Network**: Pastikan emulator/device terhubung ke internet untuk proses checkout.
