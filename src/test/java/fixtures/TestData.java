@@ -42,6 +42,7 @@ public class TestData {
     public static final String NEW_ADDRESS_LABEL = "Rumah Test Automation";
     public static final String NEW_ADDRESS_DETAIL = "Jalan Sudirman No. 1, Apartemen A, Tower B";
     public static final String NEW_ADDRESS_RECEIVER = "Test User Automation";
+    public static final String NEW_ADDRESS_PHONE = "081414343403";
 
     // ==========================================
     // 🛠 METODE AKSES (Tidak perlu diubah)
