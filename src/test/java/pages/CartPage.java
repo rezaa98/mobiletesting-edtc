@@ -2,6 +2,7 @@ package pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
+import fixtures.TestData;
 
 /**
  * CartPage - Page Object untuk halaman keranjang belanja.
@@ -48,11 +49,19 @@ public class CartPage extends BasePage {
     }
 
     public void chooseDeliveryMethod() {
-        click(deliveryMethodButton);
+        forceClick(deliveryMethodButton);
         waitForSeconds(2); // Wait for bottom sheet
         click(regulerDeliveryOption);
         waitForSeconds(1); // Wait for time slots to appear
-        click(timeSlotOption); // Click first time slot
+        
+        if ("Slot Waktu Pertama".equalsIgnoreCase(TestData.DELIVERY_TIME)) {
+            click(timeSlotOption); // Click first time slot
+        } else {
+            scrollToText(TestData.DELIVERY_TIME);
+            By specificTimeSlot = By.xpath("//android.widget.TextView[contains(@text, '" + TestData.DELIVERY_TIME + "')]");
+            forceClick(specificTimeSlot);
+        }
+        
         waitForSeconds(1);
         click(konfirmasiButton);
         waitForSeconds(2); // Wait for bottom sheet to close
