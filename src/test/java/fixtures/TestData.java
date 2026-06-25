@@ -27,7 +27,7 @@ public class TestData {
     // tersedia.
     // Jika Anda ingin memilih spesifik (contoh: "10:00 - 12:00"),
     // pastikan menambahkan implementasinya di CartPage.java nanti.
-    public static final String DELIVERY_TIME = "Slot Waktu Pertama";
+    public static final String DELIVERY_TIME = "13.00 - 13.59";
 
     // --- Pembayaran ---
     public static final String PAYMENT_METHOD = "BCA Virtual Account";
